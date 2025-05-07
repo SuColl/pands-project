@@ -10,7 +10,7 @@ import sys
 import pandas as pd
 
 # variable to hold Iris data filename
-FILENAME = "iris.data"
+FILENAME = "bezdekiris.data"
 
 with open (FILENAME, 'rt') as iris_file:
 
