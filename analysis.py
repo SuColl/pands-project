@@ -10,9 +10,13 @@ import sys
 import pandas as pd
 
 # variable to hold Iris data filename
-FILENAME = "bezdekiris.data"
+INPUT_FILENAME = "bezdekiris.data"
 
-with open (FILENAME, 'rt') as iris_file:
+# variable to hold filename of text file to contain a summary of each feature
+OUTPUT_FILENAME = "iris_stats.txt"
+
+# open data file and read into dataframe
+with open (INPUT_FILENAME, 'rt') as iris_file:
 
     # Create Pandas DataFrame from the iris data file.
     # Add column names manually as they are not present in the iris.data file.
@@ -25,5 +29,9 @@ with open (FILENAME, 'rt') as iris_file:
             "petal_width", 
             "species"])
     
-# print out dataframe
-print(iris)
+
+# print out dataframe statistics per feature, overwrite file if exists
+with open (OUTPUT_FILENAME, 'w+t') as stats_file:
+    print(iris.describe(), file=stats_file)
+
+
