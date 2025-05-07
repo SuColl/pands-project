@@ -22,7 +22,7 @@ Author: Susan Collins
 - Dataset is available as part of R base, scikit-learn, pandas
 
 ### Corruption
-- The scikit-learn documentation indicates that the UCI version contains two incorrect data points that are inconsistent with the data in Fisher's paper. The UCI repository contains a corrected version and also the previous incorrect version named "bezdekiris.data", after Bezdek et. al. (1999) pointed out these two incorrect points. 
+- The scikit-learn documentation indicates that the UCI version contains two incorrect data points that are inconsistent with the data in Fisher's paper. The UCI repository contains a corrected version named "bezdekiris.data", after Bezdek et. al. (1999) pointed out these two incorrect points. 
 
 ***References***  
 Anderson, E. (1936). The species problem in Iris. Annals of the Missouri Botanical Garden, 23(3), 457. https://doi.org/10.2307/2394164 
