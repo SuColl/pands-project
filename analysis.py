@@ -1,5 +1,5 @@
 # analysis.py
-# Program to read in Fisher's Iris dataset, perfom exploratory data anaysis, 
+# Program to read in Fisher's Iris dataset, perfom exploratory data analysis, 
 # and plot features of the data.
 
 # Author: Susan Collins
@@ -67,7 +67,6 @@ for index, feature in enumerate(feature_names):
         x=feature,
         bins=nbins,
         hue='species',
-        hue_order=["Iris-setosa","Iris-versicolor","Iris-virginica"],
         alpha=0.5,
         edgecolor='black',
         legend=plot_legend_flag
@@ -82,5 +81,36 @@ for index, feature in enumerate(feature_names):
 # Set overall title
 fig.suptitle("Histograms of features in the Iris Dataset")
 
-# Print to file
+# Print to file and close this figure, so the next one can be made. 
+# ref: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
 plt.savefig('plot01_histograms_of_iris_features.png')
+plt.close()
+
+
+
+# Plot a demonstration scatter plot of petal length vs sepal length, with a linear fit for each species.
+sns.scatterplot(
+    iris, 
+    x="sepal length", 
+    y="petal length",
+    hue="species"
+    )
+
+# for each unique value in the species coloum, plot a linear fit
+for species in iris.species.unique():
+    sns.regplot(
+        iris[iris.species==species], 
+        scatter=False,
+        x="sepal length", 
+        y="petal length",
+        )
+
+# add the title
+plt.title(
+    "Scatter plot of iris petal length vs sepal length,\n"
+    "with a linear fit for each iris species."
+)
+
+# Print to file and close the plot
+plt.savefig('plot02_scatterplot_petal_length_vs_sepal_length.png')
+plt.close()
