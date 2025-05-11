@@ -1,5 +1,5 @@
 # analysis.py
-# Program to read in Fisher's Iris dataset, perfom exploratory data analysis, 
+# Program to read in Fisher's Iris dataset, perform exploratory data analysis, 
 # and plot features of the data.
 
 # Author: Susan Collins
@@ -96,7 +96,7 @@ sns.scatterplot(
     hue="species"
     )
 
-# for each unique value in the species coloum, plot a linear fit
+# for each unique value in the species column, plot a linear fit
 for species in iris.species.unique():
     sns.regplot(
         iris[iris.species==species], 
@@ -114,3 +114,20 @@ plt.title(
 # Print to file and close the plot
 plt.savefig('plot02_scatterplot_petal_length_vs_sepal_length.png')
 plt.close()
+
+
+
+# Create Seaborn Pairplot
+sns.pairplot(
+    iris,
+    hue='species', 
+    )
+
+# Add plot title
+plt.suptitle("Pairplot of Features in Iris Data Set", y=1.02, size='xx-large');
+
+# Print to file and close the plot
+plt.savefig('plot03_pairplot.png')
+plt.close()
+
+
