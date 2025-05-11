@@ -21,6 +21,7 @@ OUTPUT_FILENAME = "iris_stats.txt"
 # List of features (columns) in the data
 feature_names = ["sepal length", "sepal width", "petal length", "petal width"]
 
+
 # open data file and read into dataframe
 with open (INPUT_FILENAME, 'rt') as iris_file:
 
@@ -32,15 +33,15 @@ with open (INPUT_FILENAME, 'rt') as iris_file:
         )
     
 
+
 # print out dataframe statistics per feature, overwrite file if exists
 with open (OUTPUT_FILENAME, 'w+t') as stats_file:
     print(iris.describe(), file=stats_file)
 
 
+
 # Use Pyplot to create multiplot histogram of each feature in iris data
 fig, ax = plt.subplots(2, 2, layout ='constrained', figsize=(8, 6)) 
-# Create variable to iterate over the subplots
-this_subplot = 0
 
 # For each feature, by name
 for index, feature in enumerate(feature_names):
