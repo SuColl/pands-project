@@ -43,17 +43,16 @@ fig, ax = plt.subplots(2, 2, layout ='constrained', figsize=(8, 6))
 this_subplot = 0
 
 # For each feature, by name
-for feature in feature_names:
+for index, feature in enumerate(feature_names):
 
-    # set which subplot we are working on, counting from 1
-    this_subplot += 1    
-    plt.subplot(2,2,this_subplot)
+    # set which subplot we are working on, counting from 1   
+    plt.subplot(2, 2, index+1)
     
     # set number of bins 
     nbins = 25
 
     # Only plot the legend on the last subplot
-    if this_subplot == 4:
+    if index == 3:
         plot_legend_flag = True
     else:
         plot_legend_flag = False
@@ -83,4 +82,4 @@ for feature in feature_names:
 fig.suptitle("Histograms of features in the Iris Dataset")
 
 # Print to file
-plt.savefig('histograms_of_iris_features.png')
+plt.savefig('plot01_histograms_of_iris_features.png')
