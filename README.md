@@ -5,31 +5,56 @@ Ireland, Spring 2025
 
 Author: Susan Collins
 
-## The Iris Dataset (Notes to be written up)
-### History and provenance
-- Collection of botanical measurements taken on three species of iris flower
-- Data taken by botanist Anderson, published 1936, https://doi.org/10.2307/2394164
-- Versicolor and Setosa samples taken at same site at Gaspé Peninsula, Quebec, 1935.
-- Unwin & Kleinman date the Virginica samples to 1926, Tenesssee
-- Used by Fisher (1936) to demonstrate his method of statistical analysis
+## Description of this repository
 
-### Data description
-- The dataset consists of measurements of 150 plants, 50 each of three species. Each plant has four measurements - sepal length, sepal width, petal length, and petal width, all in cm.
+This repository comprises files containing [Fisher's Iris data set](https://en.wikipedia.org/wiki/Iris_flower_data_set), a Python program that performs exploratory data analysis on the data set, and a Jupyter notebook that explains and provides references for the code in this program. 
 
-### Fame
-- Considered the "hello world" of data sets, famously used as a sample or "toy" dataset, or test dataset, in the fields of data science, statistics, data visualisation, machine learning. Fisher's paper has been cited over 9000 times.
-- Useful set of labelled data for testing classification methods
-- Dataset is available as part of R base, scikit-learn, pandas
+These files have been produced as part of an assessment for the Programming and Scripting module, part of the Higher Diploma in Data Analytics, at Atlantic Technological University, Ireland, Spring 2025.
 
-### Corruption
-- The scikit-learn documentation indicates that the UCI version contains two incorrect data points that are inconsistent with the data in Fisher's paper. The UCI repository contains a corrected version named "bezdekiris.data", after Bezdek et. al. (1999) pointed out these two incorrect points. 
+The brief for this project is listed here: [Project 2025.pdf](https://github.com/andrewbeattycourseware/pands-courseware/blob/main/labs/Project%202025.pdf)
 
-***References***  
-Anderson, E. (1936). The species problem in Iris. Annals of the Missouri Botanical Garden, 23(3), 457. https://doi.org/10.2307/2394164 
+## Files in this repository
+[README.md](https://github.com/SuColl/pands-project/blob/main/README.md)  - this file
 
-Bezdek, J. C., Keller, J. M., Krishnapuram, R., Kuncheva, L. I., & Pal, N. R. (1999). Will the real iris data please stand up?. IEEE Transactions on Fuzzy Systems, 7(3), 368-369. 
+[.gitignore](https://github.com/SuColl/pands-project/blob/main/.gitignore) - a standard Git configuration file to prevent the upload of unnecessary files to the repository
 
-Fisher, R. A. (1936). THE USE OF MULTIPLE MEASUREMENTS IN TAXONOMIC PROBLEMS. Annals of Eugenics, 7(2), 179–188. https://doi.org/10.1111/j.1469-1809.1936.tb02137.x  
+[requirements.txt](https://github.com/SuColl/pands-project/blob/main/requirements.txt) - a list of Python libraries required to run the code in the Juypter notebook
 
-Antony Unwin, Kim Kleinman, The Iris Data Set: In Search of the Source of Virginica, Significance, Volume 18, Issue 6, December 2021, Pages 26–29, https://doi.org/10.1111/1740-9713.01589  
- 
+[bezdekiris.data](https://github.com/SuColl/pands-project/blob/main/bezdekIris.data) - the Iris data set, downloaded from the [UC Irving Machine Learning Repository](https://archive.ics.uci.edu/dataset/53/iris). This is the version corrected after [Bezdek et. al. (1999)](https://doi.org/10.1109/91.771092).
+
+[analysis.py](https://github.com/SuColl/pands-project/blob/main/analysis.py) - a Python program that reads in the Iris data file and produces a text file summarising the statistical characteristics of the data features, and several plots of the data features. 
+
+[commentary.ipynb](https://github.com/SuColl/pands-project/blob/main/commentary.ipynb) - a Jupyter notebook which breaks down the code in analysis.py, providing explanations, comments and references.
+
+Outputs of analysis.py:
+- [iris_stats.txt]() - a text file
+- [plot01_histograms_of_iris_features.png](https://github.com/SuColl/pands-project/blob/main/plot01_histograms_of_iris_features.png) - a multipart plot of the distribution of data points for each measurement of the iris flowers, separated by species
+- [plot02_scatterplot_petal_length_vs_sepal_length.png](https://github.com/SuColl/pands-project/blob/main/plot02_scatterplot_petal_length_vs_sepal_length.png) - a scatter plot of iris petal length ve sepal length, with a linear fit displayed for each species' data points,
+- [plot03_pairplot.png](https://github.com/SuColl/pands-project/blob/main/plot03_pairplot.png) - a 4x4 pairplot of each feature in the dataset.
+
+## Expected output of analysis.py
+```
+       sepal length  sepal width  petal length  petal width
+count    150.000000   150.000000    150.000000   150.000000
+mean       5.843333     3.057333      3.758000     1.199333
+std        0.828066     0.435866      1.765298     0.762238
+min        4.300000     2.000000      1.000000     0.100000
+25%        5.100000     2.800000      1.600000     0.300000
+50%        5.800000     3.000000      4.350000     1.300000
+75%        6.400000     3.300000      5.100000     1.800000
+max        7.900000     4.400000      6.900000     2.500000
+
+```
+
+![](plot01_histograms_of_iris_features.png)
+
+![](plot02_scatterplot_petal_length_vs_sepal_length.png)
+
+![](plot03_pairplot.png)
+
+
+## Technologies used in the creation of this repository
+- Python v3.12.7
+- Git
+- GitHub
+- Jupyter
