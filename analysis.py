@@ -104,15 +104,15 @@ for index, feature in enumerate(feature_names):
     else:
         plot_legend_flag = False
 
-    # Use Seaborn to plot histograms
-    # ref: https://seaborn.pydata.org/generated/seaborn.histplot.html
-    # As data for all targets is called in one plot command, the histogram
-    # bins are the same across all three targets
+    # Use Seaborn to plot histograms.
+    # As data for all species is called in one plot command, the histogram
+    # bins are the same across all three species of iris.
     sns.histplot(
         iris, 
         x=feature,
         bins=nbins,
         hue='species',
+        kde=True,
         alpha=0.5,
         edgecolor='black',
         legend=plot_legend_flag
@@ -125,7 +125,10 @@ for index, feature in enumerate(feature_names):
     plt.ylabel("Frequency")
 
 # Set overall title
-fig.suptitle("Histograms of features in the Iris Dataset")
+fig.suptitle(
+    "Histograms of features in the Iris Dataset\n"
+    "with overlaid KDE Plots"
+    )
 
 # Print to file and close this figure, so the next one can be made. 
 # ref: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
