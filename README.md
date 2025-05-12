@@ -20,7 +20,7 @@ The brief for this project is listed here: [Project 2025.pdf](https://github.com
 
 [requirements.txt](https://github.com/SuColl/pands-project/blob/main/requirements.txt) - a list of Python libraries required to run the code in the Juypter notebook
 
-[bezdekiris.data](https://github.com/SuColl/pands-project/blob/main/bezdekIris.data) - the Iris data set, downloaded from the [UC Irving Machine Learning Repository](https://archive.ics.uci.edu/dataset/53/iris). This is the version corrected after [Bezdek et. al. (1999)](https://doi.org/10.1109/91.771092).
+[bezdekIris.data](https://github.com/SuColl/pands-project/blob/main/bezdekIris.data) - the Iris data set, downloaded from the [UC Irving Machine Learning Repository](https://archive.ics.uci.edu/dataset/53/iris). This is the version corrected after [Bezdek et. al. (1999)](https://doi.org/10.1109/91.771092).
 
 [analysis.py](https://github.com/SuColl/pands-project/blob/main/analysis.py) - a Python program that reads in the Iris data file and produces a text file summarising the statistical characteristics of the data features, and several plots of the data features. 
 
