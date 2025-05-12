@@ -30,7 +30,8 @@ Outputs of analysis.py:
 - [iris_stats.txt](https://github.com/SuColl/pands-project/blob/main/iris_stats.txt) - a text file
 - [plot01_histograms_of_iris_features.png](https://github.com/SuColl/pands-project/blob/main/plot01_histograms_of_iris_features.png) - a multipart plot of the distribution of data points for each measurement of the iris flowers, separated by species
 - [plot02_scatterplot_petal_length_vs_sepal_length.png](https://github.com/SuColl/pands-project/blob/main/plot02_scatterplot_petal_length_vs_sepal_length.png) - a scatter plot of iris petal length ve sepal length, with a linear fit displayed for each species' data points,
-- [plot03_pairplot.png](https://github.com/SuColl/pands-project/blob/main/plot03_pairplot.png) - a 4x4 pairplot of each feature in the dataset.
+- [plot03_pairplot.png](https://github.com/SuColl/pands-project/blob/main/plot03_pairplot.png) - a 4x4 pairplot of each feature in the dataset
+- [plot04_heatmap.png](https://github.com/SuColl/pands-project/blob/main/plot04_heatmap.png) - a heatmap of the Pearson correlation coefficient for each pair of features in the dataset.
 
 ## Expected output of analysis.py
 ### [iris_stats.txt](https://github.com/SuColl/pands-project/blob/main/iris_stats.txt)
@@ -96,6 +97,9 @@ Iris-virginica          6.588        2.974         5.552        2.026
 
 ### [plot03_pairplot.png](https://github.com/SuColl/pands-project/blob/main/plot03_pairplot.png)
 ![](plot03_pairplot.png)
+
+### [plot04_heatmap.png](https://github.com/SuColl/pands-project/blob/main/plot04_heatmap.png)
+![](plot04_heatmap.png)
 
 
 ## Technologies used in the creation of this repository

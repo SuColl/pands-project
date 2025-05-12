@@ -195,3 +195,31 @@ except PermissionError:
 plt.close()
 
 
+
+# Calculate the Pearson correlation coefficient matrix, and plot a 
+# heatmap of this matrix.
+# Calculating the correlation matrix using pandas.DataFrame.corr()
+correlation_matrix = iris.corr(numeric_only=True)
+
+# Plotting the heatmap with Seaborn
+sns.heatmap(
+    correlation_matrix,
+    center=0, 
+    annot=True
+    )
+
+# This command stops the y-tic labels from being plotted at 90º, 
+# which is the default if they are short enough not to clash
+plt.yticks(rotation=0)
+
+# add plot title
+plt.title("Correlation coefficients between iris data set features")
+
+# Print to file and close the plot
+try:
+    plt.savefig('plot04_heatmap.png')
+except PermissionError:
+    print(
+        "Error! You do not have permission to create the heatmap file."
+        )
+plt.close()
