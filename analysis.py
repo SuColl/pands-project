@@ -15,11 +15,13 @@ try:
     # Libraries for plotting
     import matplotlib.pyplot as plt
     import seaborn as sns
+
 except ModuleNotFoundError:
     exit(
         "This program requires certain Python modules.\n"
         "Please check requirements.txt, install these modules and try again.\n"
         "Goodbye.")    
+
 
 # variable to hold Iris data filename
 INPUT_FILENAME = "bezdekIris.data"
@@ -62,7 +64,21 @@ except UnicodeDecodeError:
 # print out dataframe statistics per feature, overwrite file if exists
 try:
     with open (OUTPUT_FILENAME, 'w+t') as stats_file:
+        print(
+            "Iris Dataset Feature Statistics - All Data", 
+            file=stats_file
+            )
         print(iris.describe(), file=stats_file)
+        print(
+            "\nIris Dataset Feature Statistics - Grouped By Species", file=stats_file
+            )
+        print(iris.groupby("species").describe().T, file=stats_file)
+        print(
+            "\nIris Dataset Mean and Medians - Grouped By Species", file=stats_file
+            )
+        print(iris.groupby("species").agg('mean', 'median'), 
+            file=stats_file
+            )
 except PermissionError:
     print(
         "Error! You do not have permission to write to/overwrite the "
