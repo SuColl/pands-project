@@ -4,16 +4,25 @@
 
 # Author: Susan Collins
 
-# Library to allow file-handling
-import sys
-# Library for data analysis
-import pandas as pd
-# Libraries for plotting
-import matplotlib.pyplot as plt
-import seaborn as sns
+
+# If any of these modules are not installed, program ends. 
+# Below code re-used from weekly task program es.py
+try:
+    # Library to allow system exit functions
+    import sys
+    # Library for data analysis
+    import pandas as pd
+    # Libraries for plotting
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+except ModuleNotFoundError:
+    exit(
+        "This program requires certain Python modules.\n"
+        "Please check requirements.txt, install these modules and try again.\n"
+        "Goodbye.")    
 
 # variable to hold Iris data filename
-INPUT_FILENAME = "bezdekiris.data"
+INPUT_FILENAME = "bezdekIris.data"
 
 # variable to hold filename of text file to contain a summary of each feature
 OUTPUT_FILENAME = "iris_stats.txt"
@@ -23,21 +32,42 @@ feature_names = ["sepal length", "sepal width", "petal length", "petal width"]
 
 
 # open data file and read into dataframe
-with open (INPUT_FILENAME, 'rt') as iris_file:
+# Below error-handling code re-used from weekly task program es.py
+try:
+    with open (INPUT_FILENAME, 'rt') as iris_file:
 
-    # Create Pandas DataFrame from the iris data file.
-    # Add column names manually as they are not present in the iris.data file.
-    iris = pd.read_csv(
-        iris_file, 
-        names=feature_names + ["species"]
+        # Create Pandas DataFrame from the iris data file.
+        # Add column names manually as they are not present in the iris.data file.
+        iris = pd.read_csv(
+            iris_file, 
+            names=feature_names + ["species"]
+            )
+
+# Exception if the file does not exist
+except FileNotFoundError:
+    sys.exit(f"Error! The file {INPUT_FILENAME} does not exist.")
+
+# Exception if the user does not have permissions to open the file
+except PermissionError:
+    sys.exit(
+        f"Error! You do not have permission to read the file {INPUT_FILENAME}"
         )
-    
+
+# Exception if the file is not a text file
+except UnicodeDecodeError:
+    sys.exit(f"Error! The file {INPUT_FILENAME} is not a text file.")
+
 
 
 # print out dataframe statistics per feature, overwrite file if exists
-with open (OUTPUT_FILENAME, 'w+t') as stats_file:
-    print(iris.describe(), file=stats_file)
-
+try:
+    with open (OUTPUT_FILENAME, 'w+t') as stats_file:
+        print(iris.describe(), file=stats_file)
+except PermissionError:
+    print(
+        "Error! You do not have permission to write to/overwrite the "
+        f"file {OUTPUT_FILENAME}. This program will skip this step."
+        )
 
 
 # Use Pyplot to create multiplot histogram of each feature in iris data
@@ -83,7 +113,12 @@ fig.suptitle("Histograms of features in the Iris Dataset")
 
 # Print to file and close this figure, so the next one can be made. 
 # ref: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
-plt.savefig('plot01_histograms_of_iris_features.png')
+try: 
+    plt.savefig('plot01_histograms_of_iris_features.png')
+except PermissionError:
+    print(
+        "Error! You do not have permission to create the histogram plot file."
+        )
 plt.close()
 
 
@@ -112,7 +147,12 @@ plt.title(
 )
 
 # Print to file and close the plot
-plt.savefig('plot02_scatterplot_petal_length_vs_sepal_length.png')
+try:
+    plt.savefig('plot02_scatterplot_petal_length_vs_sepal_length.png')
+except PermissionError:
+    print(
+        "Error! You do not have permission to create the scatter plot file."
+        )    
 plt.close()
 
 
@@ -120,14 +160,19 @@ plt.close()
 # Create Seaborn Pairplot
 sns.pairplot(
     iris,
-    hue='species', 
+    hue='species' 
     )
 
 # Add plot title
 plt.suptitle("Pairplot of Features in Iris Data Set", y=1.02, size='xx-large');
 
 # Print to file and close the plot
-plt.savefig('plot03_pairplot.png')
+try:
+    plt.savefig('plot03_pairplot.png')
+except PermissionError:
+    print(
+        "Error! You do not have permission to create the pairplot file."
+        )
 plt.close()
 
 
